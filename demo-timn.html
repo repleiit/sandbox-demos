@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Centro Estetico — Centro Estetico</title>
+<meta name="description" content="Centro estetico premium con trattamenti viso, corpo e benessere. Estetiste certificate, prodotti di alta qualità e ambiente raffinato." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{rose:'#C9A98C',cipria:'#F4DBD2',taupe:'#8B6F5C',cream:'#FBF7F4',ink:'#3A2E26'},fontFamily:{display:['"Playfair Display"','serif'],body:['"Open Sans"','sans-serif']},container:{center:true,padding:{DEFAULT:'1.25rem',md:'2rem',lg:'3rem'}}}}}
+</script>
+<style>
+html{scroll-behavior:smooth}body{font-family:'Open Sans',sans-serif;background:#fff;color:#5a4a40}
+.sub-title{position:relative;display:inline-block;text-transform:uppercase;letter-spacing:.1em;color:#C9A98C;font-weight:600;font-size:.9rem;padding-right:.75rem}
+.sub-title::before,.sub-title::after{content:"";position:absolute;right:0;background:#C9A98C;top:50%;transform:translateY(-50%)}
+.sub-title::before{width:100px;height:1px;margin-right:-110px;margin-top:-4px}.sub-title::after{width:50px;height:1px;margin-right:-60px;margin-top:4px}
+.section-title.text-center .sub-title{padding:0 .75rem}.section-title.text-center .sub-title::before{left:0;right:auto;margin-left:-110px;margin-right:0}.section-title.text-center .sub-title::after{left:0;right:auto;margin-left:-60px;margin-right:0}
+.wow{opacity:0}.wow.animated{opacity:1}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:none}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:none}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:none}}
+@keyframes zoomInDown{from{opacity:0;transform:translateY(-40px) scale(.92)}to{opacity:1;transform:none}}
+.wow.fadeInUp.animated{animation:fadeInUp 1s ease both}.wow.fadeInLeft.animated{animation:fadeInLeft 1s ease both}.wow.fadeInRight.animated{animation:fadeInRight 1s ease both}.wow.zoomInDown.animated{animation:zoomInDown 1s ease both}
+.btn-rose{display:inline-flex;align-items:center;gap:.5rem;background:#C9A98C;color:#fff;padding:.85rem 2rem;border-radius:9999px;font-weight:600;font-size:.9rem;transition:background .3s,transform .3s}
+.btn-rose:hover{background:#8B6F5C;transform:translateY(-2px)}.btn-rose.sm{padding:.55rem 1.4rem;font-size:.8rem}
+#spinner{position:fixed;inset:0;z-index:100;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s}#spinner.hide{opacity:0;visibility:hidden}
+.spinner-circle{width:64px;height:64px;border:3px solid #F4DBD2;border-top-color:#C9A98C;border-radius:50%;animation:spin .9s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s;pointer-events:none}.hero-slide.active{opacity:1;pointer-events:auto}
+.service-item{border-radius:14px;overflow:hidden;background:#FBF7F4;transition:transform .4s,box-shadow .4s}.service-item:hover{transform:translateY(-8px);box-shadow:0 30px 50px -25px rgba(58,46,38,.25)}
+.service-img{overflow:hidden;aspect-ratio:4/3}.service-img>img{transition:transform .8s;height:100%}.service-item:hover .service-img>img{transform:scale(1.08)}
+.feature-item{background:linear-gradient(135deg,#F4DBD2 0%,#FBF7F4 100%);border-radius:14px;transition:transform .4s}.feature-item:hover{transform:translateY(-6px)}
+.team-item{border-radius:14px;overflow:hidden;background:#fff;border:1px solid transparent;transition:border-color .3s}.team-item:hover{border-color:#C9A98C}
+.team-img{position:relative;aspect-ratio:4/5;overflow:hidden}.team-icon{position:absolute;right:-50px;top:20px;display:flex;flex-direction:column;gap:.5rem;transition:right .5s}.team-item:hover .team-icon{right:15px}
+.appointment-form{background:#C9A98C;border-radius:18px}
+.appointment-form input,.appointment-form select,.appointment-form textarea{width:100%;padding:.85rem 1rem;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:8px;font-size:.92rem}
+.appointment-form input::placeholder,.appointment-form textarea::placeholder{color:rgba(255,255,255,.7)}.appointment-form select option{color:#3A2E26}
+.testi-slide{position:absolute;inset:0;opacity:0;transform:scale(.96);transition:opacity .6s,transform .6s;pointer-events:none}.testi-slide.active{opacity:1;transform:none;pointer-events:auto}
+.blog-item{border-radius:14px;overflow:hidden;background:#fff;border:1px solid #F4DBD2;transition:transform .4s,box-shadow .4s}.blog-item:hover{transform:translateY(-6px);box-shadow:0 25px 40px -20px rgba(201,169,140,.4)}
+.blog-img{overflow:hidden;aspect-ratio:16/10}.blog-img>img{transition:transform .8s;height:100%}.blog-item:hover .blog-img>img{transform:scale(1.06)}
+#toTop{position:fixed;right:24px;bottom:24px;z-index:50;width:46px;height:46px;border-radius:50%;background:#C9A98C;color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s,background .3s}#toTop.show{opacity:1;pointer-events:auto}#toTop:hover{background:#8B6F5C}
+</style>
+</head>
+<body class="font-body antialiased">
+
+<div id="spinner"><div class="spinner-circle"></div></div>
+
+<div class="hidden lg:block bg-ink text-cream">
+  <div class="container"><div class="flex items-center justify-between h-11 text-xs">
+    <div class="flex items-center gap-6">
+      
+      
+      
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#" aria-label="Facebook" class="w-7 h-7 rounded-full bg-cream text-ink flex items-center justify-center hover:bg-rose hover:text-white transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .3-2 2-2h2V2.2C16.7 2.1 15.4 2 14 2c-3 0-5 2-5 5v3H6v4h3v8h4z"/></svg></a>
+      <a href="#" aria-label="Instagram" class="w-7 h-7 rounded-full bg-cream text-ink flex items-center justify-center hover:bg-rose hover:text-white transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+    </div>
+  </div></div>
+</div>
+
+<header class="bg-white sticky top-0 z-40 shadow-sm">
+  <div class="container"><div class="flex items-center justify-between py-4">
+    <a href="#" class="flex items-center gap-3 text-ink">
+      <div class="w-11 h-11 rounded-full bg-rose flex items-center justify-center text-white"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3c-1 3-3 5-3 8a3 3 0 006 0c0-3-2-5-3-8z" fill="currentColor"/><path d="M5 11c1-1 3-1 4 0s1 3 0 4-3 1-4 0-1-3 0-4zM19 11c-1-1-3-1-4 0s-1 3 0 4 3 1 4 0 1-3 0-4z" fill="currentColor" opacity="0.7"/><path d="M12 14c-3 2-7 2-9 0 0 4 4 6 9 6s9-2 9-6c-2 2-6 2-9 0z" fill="currentColor" opacity="0.5"/></svg></div>
+      <span class="font-display text-2xl font-semibold">Centro Estetico</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-ink">
+      <a href="#" class="text-rose">Home</a><a href="#about" class="hover:text-rose">Chi siamo</a><a href="#servizi" class="hover:text-rose">Servizi</a><a href="#team" class="hover:text-rose">Team</a><a href="#blog" class="hover:text-rose">Blog</a><a href="#contatti" class="hover:text-rose">Contatti</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#prenota" class="hidden md:inline-flex btn-rose sm">Prenota ora</a>
+      <button id="menuBtn" class="lg:hidden text-ink" aria-label="Menu"><svg width="28" height="14" viewBox="0 0 28 14" fill="none"><path d="M0 1h28M0 13h28" stroke="currentColor" stroke-width="1.8"/></svg></button>
+    </div>
+  </div></div>
+  <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-cream translate-x-full transition-transform duration-500 z-50">
+    <div class="flex items-center justify-between p-5 border-b border-cipria"><span class="font-display text-2xl text-ink">Centro Estetico</span><button id="closeBtn" aria-label="Chiudi" class="text-ink"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M1 1l20 20M21 1L1 21" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+    <nav class="flex flex-col px-6 py-10 gap-6 text-2xl font-display text-ink"><a href="#">Home</a><a href="#about">Chi siamo</a><a href="#servizi">Servizi</a><a href="#team">Team</a><a href="#blog">Blog</a><a href="#contatti">Contatti</a><a href="#prenota" class="text-rose">Prenota →</a></nav>
+  </div>
+</header>
+
+<section class="relative overflow-hidden"><div class="relative aspect-[16/8] min-h-[480px]" id="heroCarousel">
+  <div class="hero-slide active">
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1400&q=80" alt="" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/40 to-transparent"></div>
+    <div class="relative z-10 container h-full flex items-center"><div class="max-w-2xl text-white py-12">
+      <h5 class="text-rose uppercase font-bold tracking-[.3em] mb-6 text-sm">Centro Estetico</h5>
+      <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05] mb-6">La tua bellezza è il nostro impegno quotidiano</h1>
+      <p class="text-lg text-white/85 mb-10 max-w-xl leading-relaxed">Un rifugio di benessere dove prenderti cura di te con trattamenti personalizzati e l'esperienza di professioniste qualificate. Scopri l'eccellenza nella cura estetica.</p>
+      <a href="#prenota" class="btn-rose">Prenota Appuntamento</a>
+    </div></div>
+  </div>
+  <div class="hero-slide">
+    <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=1400&q=80" alt="" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/40 to-transparent"></div>
+    <div class="relative z-10 container h-full flex items-center"><div class="max-w-2xl text-white py-12">
+      <h5 class="text-rose uppercase font-bold tracking-[.3em] mb-6 text-sm">Centro Estetico</h5>
+      <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05] mb-6">Riscopri il piacere di sentirti bene</h1>
+      <p class="text-lg text-white/85 mb-10 max-w-xl leading-relaxed">Tecniche avanzate e prodotti selezionati per esaltare la tua bellezza naturale. Un'esperienza sensoriale che unisce efficacia e relax in ogni trattamento.</p>
+      <a href="#prenota" class="btn-rose">Prenota Appuntamento</a>
+    </div></div>
+  </div>
+  <button id="heroPrev" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/80 backdrop-blur text-ink flex items-center justify-center hover:bg-rose hover:text-white transition"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1m0 0l5-5M1 5l5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
+  <button id="heroNext" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/80 backdrop-blur text-ink flex items-center justify-center hover:bg-rose hover:text-white transition"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.8"/></svg></button>
+</div></section>
+
+<section id="servizi" class="py-20 lg:py-28 bg-white"><div class="container">
+  <div class="section-title text-center max-w-3xl mx-auto mb-16 wow fadeInUp"><h4 class="sub-title mb-5">I Nostri Servizi</h4><h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-tight mb-6">Trattamenti studiati per ogni esigenza</h2><p class="text-taupe leading-relaxed">Offriamo una gamma completa di trattamenti studiati per il benessere di viso, corpo e mani. Ogni servizio è eseguito con tecniche professionali e prodotti selezionati per garantire risultati visibili e duraturi.</p></div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+  <article class="service-item wow fadeInUp" data-wow-delay="0.1s">
+    <div class="service-img"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1400&q=80" alt="Pulizia Viso" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="w-14 h-14 rounded-full bg-cipria/60 flex items-center justify-center mb-4"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><path d="M24 6c4 6 12 14 12 22a12 12 0 01-24 0c0-8 8-16 12-22z" stroke="currentColor" stroke-width="2.5"/><path d="M18 30c0 4 3 6 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      <h5 class="font-display text-xl font-semibold text-ink mb-3">Pulizia Viso</h5>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Trattamento profondo che libera i pori, elimina le impurità e restituisce luminosità alla pelle. Include detersione, esfoliazione, estrazione delicata e maschera specifica per il tuo tipo di pelle.</p>
+      <a href="#prenota" class="btn-rose sm">Scopri</a>
+    </div>
+  </article>
+  <article class="service-item wow fadeInUp" data-wow-delay="0.2s">
+    <div class="service-img"><img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=1400&q=80" alt="Massaggio Rilassante" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="w-14 h-14 rounded-full bg-cipria/60 flex items-center justify-center mb-4"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><path d="M8 28c4-8 28-8 32 0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="14" cy="20" r="3" stroke="currentColor" stroke-width="2.5"/><circle cx="34" cy="20" r="3" stroke="currentColor" stroke-width="2.5"/><path d="M14 36c4 4 16 4 20 0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      <h5 class="font-display text-xl font-semibold text-ink mb-3">Massaggio Rilassante</h5>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Un momento di puro relax che scioglie le tensioni muscolari e favorisce il benessere psicofisico. Tecniche manuali che riattivano la circolazione e donano una piacevole sensazione di leggerezza.</p>
+      <a href="#prenota" class="btn-rose sm">Scopri</a>
+    </div>
+  </article>
+  <article class="service-item wow fadeInUp" data-wow-delay="0.3s">
+    <div class="service-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=80" alt="Manicure" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="w-14 h-14 rounded-full bg-cipria/60 flex items-center justify-center mb-4"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><path d="M16 26V12a2 2 0 014 0v10M20 22V8a2 2 0 014 0v14M24 22V10a2 2 0 014 0v14M28 24v-8a2 2 0 014 0v14c0 6-4 10-10 10s-10-4-10-10v-2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      <h5 class="font-display text-xl font-semibold text-ink mb-3">Manicure</h5>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Cura completa delle mani con trattamento delle cuticole, limatura, lucidatura e applicazione di smalto professionale. Mani curate e unghie perfette con prodotti di alta qualità.</p>
+      <a href="#prenota" class="btn-rose sm">Scopri</a>
+    </div>
+  </article>
+  <article class="service-item wow fadeInUp" data-wow-delay="0.4s">
+    <div class="service-img"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1400&q=80" alt="Pedicure" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="w-14 h-14 rounded-full bg-cipria/60 flex items-center justify-center mb-4"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><path d="M16 30c-4-1-6-4-6-9 0-7 6-13 14-13s14 6 14 13c0 5-2 8-6 9-2 .5-3 1.5-3 3v2a3 3 0 01-6 0v-2c0-1.5-1-2.5-3-3z" stroke="currentColor" stroke-width="2.5"/><circle cx="14" cy="15" r="1.5" fill="currentColor"/><circle cx="20" cy="11" r="1.5" fill="currentColor"/><circle cx="26" cy="11" r="1.5" fill="currentColor"/><circle cx="32" cy="15" r="1.5" fill="currentColor"/></svg></div>
+      <h5 class="font-display text-xl font-semibold text-ink mb-3">Pedicure</h5>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Trattamento dedicato al benessere dei piedi con pediluvio, rimozione delle callosità, cura delle unghie e massaggio rilassante. Piedi morbidi e curati in ogni dettaglio.</p>
+      <a href="#prenota" class="btn-rose sm">Scopri</a>
+    </div>
+  </article>
+  <article class="service-item wow fadeInUp" data-wow-delay="0.1s">
+    <div class="service-img"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1400&q=80" alt="Trattamento Anti-Age" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="w-14 h-14 rounded-full bg-cipria/60 flex items-center justify-center mb-4"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2.5"/><circle cx="19" cy="22" r="1.5" fill="currentColor"/><circle cx="29" cy="22" r="1.5" fill="currentColor"/><path d="M20 28c2 2 6 2 8 0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M38 12l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="currentColor"/></svg></div>
+      <h5 class="font-display text-xl font-semibold text-ink mb-3">Trattamento Anti-Age</h5>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Protocollo mirato a contrastare i segni del tempo con principi attivi concentrati e tecniche specifiche. Stimola il rinnovamento cellulare e ridona tono ed elasticità alla pelle del viso.</p>
+      <a href="#prenota" class="btn-rose sm">Scopri</a>
+    </div>
+  </article>
+  <article class="service-item wow fadeInUp" data-wow-delay="0.2s">
+    <div class="service-img"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1400&q=80" alt="Depilazione" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="w-14 h-14 rounded-full bg-cipria/60 flex items-center justify-center mb-4"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><path d="M8 24h32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M14 18l4 6-4 6M34 18l-4 6 4 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="3" stroke="currentColor" stroke-width="2.5"/></svg></div>
+      <h5 class="font-display text-xl font-semibold text-ink mb-3">Depilazione</h5>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Rimozione dei peli superflui con tecniche delicate e prodotti dermatologicamente testati. Pelle liscia e morbida a lungo, nel massimo rispetto della sensibilità cutanea.</p>
+      <a href="#prenota" class="btn-rose sm">Scopri</a>
+    </div>
+  </article>
+  <article class="service-item wow fadeInUp" data-wow-delay="0.3s">
+    <div class="service-img"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1400&q=80" alt="Trucco Semipermanente" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="w-14 h-14 rounded-full bg-cipria/60 flex items-center justify-center mb-4"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><path d="M8 40l8-8M14 30l16-16 4 4-16 16-4-4z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M30 14l8-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      <h5 class="font-display text-xl font-semibold text-ink mb-3">Trucco Semipermanente</h5>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Definizione perfetta di sopracciglia e labbra con pigmenti certificati e tecniche di ultima generazione. Risultato naturale che valorizza i tuoi lineamenti per settimane.</p>
+      <a href="#prenota" class="btn-rose sm">Scopri</a>
+    </div>
+  </article>
+  <article class="service-item wow fadeInUp" data-wow-delay="0.4s">
+    <div class="service-img"><img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=1400&q=80" alt="Trattamento Corpo" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="w-14 h-14 rounded-full bg-cipria/60 flex items-center justify-center mb-4"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><circle cx="24" cy="10" r="4" stroke="currentColor" stroke-width="2.5"/><path d="M16 22c0-4 4-6 8-6s8 2 8 6v8M16 30v10M32 30v10M16 30h16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      <h5 class="font-display text-xl font-semibold text-ink mb-3">Trattamento Corpo</h5>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Percorsi specifici per tonificare, drenare e nutrire la pelle del corpo. Dalle fasce modellanti ai fanghi detossinanti, soluzioni efficaci per ritrovare armonia e benessere.</p>
+      <a href="#prenota" class="btn-rose sm">Scopri</a>
+    </div>
+  </article></div>
+</div></section>
+
+<section id="about" class="py-20 lg:py-28 bg-cream"><div class="container">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+    <div class="lg:col-span-5 wow fadeInLeft" data-wow-delay="0.2s"><div class="relative pb-16 lg:pb-20 pl-12 lg:pl-16">
+      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1400&q=80" alt="Centro Estetico" class="w-full aspect-[4/5] rounded-2xl object-cover">
+      <div class="absolute bottom-0 left-0 w-44 h-44 lg:w-56 lg:h-56 rounded-full border-[6px] border-cream overflow-hidden"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=80" alt="" class="w-full h-full object-cover"></div>
+      <div class="absolute -bottom-2 right-2 lg:right-8 bg-rose text-white rounded-full w-32 h-32 lg:w-36 lg:h-36 flex flex-col items-center justify-center text-center px-4 shadow-xl"><span class="font-display text-3xl lg:text-4xl font-semibold leading-none">12</span><span class="text-[10px] uppercase tracking-widest mt-1 leading-tight">Anni di esperienza</span></div>
+    </div></div>
+    <div class="lg:col-span-7 wow fadeInRight" data-wow-delay="0.4s">
+      <h4 class="sub-title mb-5">Chi Siamo</h4>
+      <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-tight mb-6">Pronte ad aiutarti a sentirti al meglio.</h2>
+      <p class="text-taupe leading-relaxed mb-6">Da oltre dieci anni accompagniamo le nostre clienti in un percorso di benessere autentico, dove ogni trattamento è pensato per valorizzare la bellezza unica di ciascuna persona. Crediamo in un approccio personalizzato che rispetta la naturale armonia del corpo e del viso, utilizzando solo prodotti certificati e tecniche costantemente aggiornate. Il nostro centro è nato dalla passione per l'estetica professionale e dalla volontà di creare uno spazio dove qualità, competenza e attenzione ai dettagli si incontrano ogni giorno.</p>
+      <div class="space-y-3 mb-8">
+  <div class="flex items-start gap-3"><span class="text-rose mt-1 shrink-0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M8 12l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p class="text-taupe">Oltre 12 anni di esperienza nel settore estetico</p></div>
+  <div class="flex items-start gap-3"><span class="text-rose mt-1 shrink-0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M8 12l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p class="text-taupe">Formazione continua e certificazioni professionali</p></div>
+  <div class="flex items-start gap-3"><span class="text-rose mt-1 shrink-0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M8 12l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p class="text-taupe">Protocolli personalizzati per ogni esigenza</p></div></div>
+      <a href="#contatti" class="btn-rose">Scopri di più</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="py-20 lg:py-28 bg-white"><div class="container">
+  <div class="section-title text-center max-w-3xl mx-auto mb-16 wow fadeInUp"><h4 class="sub-title mb-5">Perché Sceglierci</h4><h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-tight mb-6">Qualità che si vede, cura che si sente</h2></div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div class="feature-item p-8 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><path d="M24 6L8 12v12c0 9 7 17 16 18 9-1 16-9 16-18V12L24 6z" stroke="currentColor" stroke-width="2.5"/><path d="M17 24l5 5 9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h5 class="font-display text-xl font-semibold text-ink mb-3">Estetiste Certificate</h5>
+    <p class="text-sm text-taupe leading-relaxed">Professioniste qualificate con formazione continua e specializzazioni avanzate</p>
+  </div>
+  <div class="feature-item p-8 wow fadeInUp" data-wow-delay="0.3s">
+    <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><path d="M24 8c-6 0-10 4-10 10v2c0 6 4 12 10 12s10-6 10-12v-2c0-6-4-10-10-10z" stroke="currentColor" stroke-width="2.5"/><circle cx="19" cy="18" r="1.5" fill="currentColor"/><circle cx="29" cy="18" r="1.5" fill="currentColor"/><path d="M20 24c2 2 6 2 8 0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M12 42c0-4 4-8 12-8s12 4 12 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+    <h5 class="font-display text-xl font-semibold text-ink mb-3">Trattamenti Personalizzati</h5>
+    <p class="text-sm text-taupe leading-relaxed">Protocolli su misura studiati sulle specifiche esigenze di ogni cliente</p>
+  </div>
+  <div class="feature-item p-8 wow fadeInUp" data-wow-delay="0.5s">
+    <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><path d="M16 12h16l4 8-12 22-12-22 4-8z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M16 12l8 8 8-8M12 20h24" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+    <h5 class="font-display text-xl font-semibold text-ink mb-3">Prodotti Premium</h5>
+    <p class="text-sm text-taupe leading-relaxed">Cosmetici professionali selezionati tra le migliori linee dermocosmetiche</p>
+  </div>
+  <div class="feature-item p-8 wow fadeInUp" data-wow-delay="0.7s">
+    <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm"><svg width="42" height="42" viewBox="0 0 48 48" fill="none" class="text-rose"><path d="M8 24c0-9 7-16 16-16s16 7 16 16-7 16-16 16S8 33 8 24z" stroke="currentColor" stroke-width="2.5"/><path d="M24 14v10l6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+    <h5 class="font-display text-xl font-semibold text-ink mb-3">Ambiente Rilassante</h5>
+    <p class="text-sm text-taupe leading-relaxed">Spazi curati e accoglienti dove vivere un'esperienza di puro benessere</p>
+  </div></div>
+</div></section>
+
+<section id="prenota" class="py-20 lg:py-28 bg-cipria/40"><div class="container">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="wow fadeInLeft" data-wow-delay="0.2s">
+      <h4 class="sub-title mb-5">Prenota un Trattamento</h4>
+      <h2 class="font-display text-4xl md:text-5xl font-medium text-ink leading-tight mb-5">Concediti del tempo, te lo meriti</h2>
+      <p class="text-taupe leading-relaxed mb-6">Contattaci per prenotare il tuo trattamento o per ricevere una consulenza personalizzata. Siamo a tua disposizione per consigliarti il percorso più adatto alle tue esigenze e rispondere a ogni tua domanda.</p>
+      <div>
+  <div class="mb-5"><h5 class="flex items-center gap-2 text-ink font-semibold mb-2"><span class="text-rose"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M8 12l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Consulenza gratuita</h5><p class="text-sm text-taupe">Analisi della pelle e consigli personalizzati senza impegno</p></div>
+  <div class="mb-5"><h5 class="flex items-center gap-2 text-ink font-semibold mb-2"><span class="text-rose"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M8 12l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pacchetti su misura</h5><p class="text-sm text-taupe">Soluzioni combinate pensate per risultati ottimali e vantaggi esclusivi</p></div></div>
+    </div>
+    <div class="appointment-form p-8 lg:p-10 text-white wow fadeInRight" data-wow-delay="0.4s">
+      <p class="uppercase tracking-widest text-sm font-semibold mb-2 opacity-90">Richiesta</p>
+      <h3 class="font-display text-3xl md:text-4xl font-medium mb-8">Prenota appuntamento</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" placeholder="Nome e cognome" /><input type="email" placeholder="Email" /><input type="tel" placeholder="Telefono" />
+        <select><option>Seleziona trattamento</option><option>Pulizia Viso</option><option>Massaggio Rilassante</option><option>Manicure</option><option>Pedicure</option><option>Trattamento Anti-Age</option><option>Depilazione</option><option>Trucco Semipermanente</option><option>Trattamento Corpo</option></select>
+        <div class="md:col-span-2"><input type="date" /></div>
+        <div class="md:col-span-2"><textarea rows="3" placeholder="Note (opzionale)"></textarea></div>
+      </div>
+      <button class="mt-6 w-full md:w-auto bg-white text-rose font-semibold px-8 py-3 rounded-full hover:bg-ink hover:text-white transition">Invia richiesta</button>
+    </div>
+  </div>
+</div></section>
+
+<section id="team" class="py-20 lg:py-28 bg-white"><div class="container">
+  <div class="section-title text-center max-w-3xl mx-auto mb-16 wow fadeInUp"><h4 class="sub-title mb-5">Il Nostro Team</h4><h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-tight mb-6">Mani esperte, sorrisi veri</h2><p class="text-taupe leading-relaxed">Il nostro team è composto da professioniste appassionate, costantemente aggiornate sulle tecniche più innovative. Competenza, esperienza e attenzione alla persona sono i valori che guidano il nostro lavoro quotidiano.</p></div>
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+  <article class="team-item wow fadeInUp" data-wow-delay="0.1s">
+    <div class="team-img">
+      <img src="https://i.pravatar.cc/400?img=5" alt="Elena Martini" class="w-full h-full object-cover" loading="lazy">
+      <div class="team-icon">
+        <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .3-2 2-2h2V2.2C16.7 2.1 15.4 2 14 2c-3 0-5 2-5 5v3H6v4h3v8h4z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v4H4zM4 10h4v10H4zM10 10h4v1.5c.7-1 2-1.8 3.5-1.8 2.7 0 4.5 1.7 4.5 5V20h-4v-4.5c0-1.4-.6-2.3-1.8-2.3-1.3 0-2.2.9-2.2 2.3V20h-4z"/></svg></a>
+      </div>
+    </div>
+    <div class="text-center p-5 border border-rose border-t-0 rounded-b-2xl">
+      <h5 class="font-display text-xl font-semibold text-ink">Elena Martini</h5>
+      <p class="text-sm text-rose mt-1">Senior Esthetician</p>
+    </div>
+  </article>
+  <article class="team-item wow fadeInUp" data-wow-delay="0.3s">
+    <div class="team-img">
+      <img src="https://i.pravatar.cc/400?img=9" alt="Chiara Rossi" class="w-full h-full object-cover" loading="lazy">
+      <div class="team-icon">
+        <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .3-2 2-2h2V2.2C16.7 2.1 15.4 2 14 2c-3 0-5 2-5 5v3H6v4h3v8h4z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v4H4zM4 10h4v10H4zM10 10h4v1.5c.7-1 2-1.8 3.5-1.8 2.7 0 4.5 1.7 4.5 5V20h-4v-4.5c0-1.4-.6-2.3-1.8-2.3-1.3 0-2.2.9-2.2 2.3V20h-4z"/></svg></a>
+      </div>
+    </div>
+    <div class="text-center p-5 border border-rose border-t-0 rounded-b-2xl">
+      <h5 class="font-display text-xl font-semibold text-ink">Chiara Rossi</h5>
+      <p class="text-sm text-rose mt-1">Massaggiatrice</p>
+    </div>
+  </article>
+  <article class="team-item wow fadeInUp" data-wow-delay="0.5s">
+    <div class="team-img">
+      <img src="https://i.pravatar.cc/400?img=16" alt="Sofia Bianchi" class="w-full h-full object-cover" loading="lazy">
+      <div class="team-icon">
+        <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .3-2 2-2h2V2.2C16.7 2.1 15.4 2 14 2c-3 0-5 2-5 5v3H6v4h3v8h4z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v4H4zM4 10h4v10H4zM10 10h4v1.5c.7-1 2-1.8 3.5-1.8 2.7 0 4.5 1.7 4.5 5V20h-4v-4.5c0-1.4-.6-2.3-1.8-2.3-1.3 0-2.2.9-2.2 2.3V20h-4z"/></svg></a>
+      </div>
+    </div>
+    <div class="text-center p-5 border border-rose border-t-0 rounded-b-2xl">
+      <h5 class="font-display text-xl font-semibold text-ink">Sofia Bianchi</h5>
+      <p class="text-sm text-rose mt-1">Nail Designer</p>
+    </div>
+  </article>
+  <article class="team-item wow fadeInUp" data-wow-delay="0.7s">
+    <div class="team-img">
+      <img src="https://i.pravatar.cc/400?img=20" alt="Giulia Ferraro" class="w-full h-full object-cover" loading="lazy">
+      <div class="team-icon">
+        <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .3-2 2-2h2V2.2C16.7 2.1 15.4 2 14 2c-3 0-5 2-5 5v3H6v4h3v8h4z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-rose text-white flex items-center justify-center hover:bg-ink transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v4H4zM4 10h4v10H4zM10 10h4v1.5c.7-1 2-1.8 3.5-1.8 2.7 0 4.5 1.7 4.5 5V20h-4v-4.5c0-1.4-.6-2.3-1.8-2.3-1.3 0-2.2.9-2.2 2.3V20h-4z"/></svg></a>
+      </div>
+    </div>
+    <div class="text-center p-5 border border-rose border-t-0 rounded-b-2xl">
+      <h5 class="font-display text-xl font-semibold text-ink">Giulia Ferraro</h5>
+      <p class="text-sm text-rose mt-1">Specialist Viso</p>
+    </div>
+  </article></div>
+</div></section>
+
+<section class="py-20 lg:py-28 bg-ink text-white wow zoomInDown"><div class="container">
+  <div class="section-title text-center max-w-3xl mx-auto mb-14"><h4 class="sub-title mb-5" style="color:#C9A98C">Testimonianze</h4><h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">Cosa dicono i nostri clienti</h2></div>
+  <div class="relative max-w-3xl mx-auto" id="testiCarousel">
+    <div class="relative min-h-[380px] md:min-h-[340px]">
+  <div class="testi-slide active">
+    <div class="text-center px-4">
+      <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-6 border-4 border-rose"><img src="https://i.pravatar.cc/400?img=24" alt="Marta" class="w-full h-full object-cover"></div>
+      <p class="text-white/85 text-lg leading-relaxed mb-6 max-w-xl mx-auto">"Vengo qui da tre anni e non cambierei mai. Elena è molto professionale e sa esattamente cosa serve alla mia pelle. Ho provato diversi trattamenti viso e i risultati sono sempre ottimi. L'ambiente è pulito e rilassante, mi sento davvero coccolata ogni volta."</p>
+      <h5 class="font-display text-xl font-semibold mb-1">Marta</h5>
+      <p class="text-white/60 text-sm mb-3">Milano</p>
+      <div class="flex justify-center gap-1 text-rose"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg></div>
+    </div>
+  </div>
+  <div class="testi-slide">
+    <div class="text-center px-4">
+      <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-6 border-4 border-rose"><img src="https://i.pravatar.cc/400?img=30" alt="Alessandra" class="w-full h-full object-cover"></div>
+      <p class="text-white/85 text-lg leading-relaxed mb-6 max-w-xl mx-auto">"Ho scoperto questo centro grazie a un'amica e devo dire che è stata una bella sorpresa. La manicure dura settimane e Chiara è bravissima con i massaggi, sa dove intervenire per sciogliere le tensioni. Prezzi onesti per la qualità che offrono."</p>
+      <h5 class="font-display text-xl font-semibold mb-1">Alessandra</h5>
+      <p class="text-white/60 text-sm mb-3">Bergamo</p>
+      <div class="flex justify-center gap-1 text-rose"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg></div>
+    </div>
+  </div>
+  <div class="testi-slide">
+    <div class="text-center px-4">
+      <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-6 border-4 border-rose"><img src="https://i.pravatar.cc/400?img=47" alt="Francesca" class="w-full h-full object-cover"></div>
+      <p class="text-white/85 text-lg leading-relaxed mb-6 max-w-xl mx-auto">"Professionalità e gentilezza in ogni occasione. Mi sono affidata a loro per il trucco semipermanente delle sopracciglia e il risultato è naturale, proprio come volevo. Consigliano sempre il trattamento più adatto senza forzare la mano, cosa che apprezzo molto."</p>
+      <h5 class="font-display text-xl font-semibold mb-1">Francesca</h5>
+      <p class="text-white/60 text-sm mb-3">Monza</p>
+      <div class="flex justify-center gap-1 text-rose"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8-6-4h7z"/></svg></div>
+    </div>
+  </div></div>
+    <button id="testiPrev" class="absolute left-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-rose text-white flex items-center justify-center hover:bg-white hover:text-rose transition"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1m0 0l5-5M1 5l5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
+    <button id="testiNext" class="absolute right-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-rose text-white flex items-center justify-center hover:bg-white hover:text-rose transition"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.8"/></svg></button>
+  </div>
+</div></section>
+
+<section id="blog" class="py-20 lg:py-28 bg-cream"><div class="container">
+  <div class="section-title text-center max-w-3xl mx-auto mb-16 wow fadeInUp"><h4 class="sub-title mb-5">Il Nostro Blog</h4><h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-ink leading-tight mb-6">Consigli, novità, dietro le quinte</h2><p class="text-taupe leading-relaxed">Approfondimenti, consigli e novità dal mondo della bellezza e del benessere. Scopri i nostri articoli per prenderti cura di te in modo consapevole.</p></div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <article class="blog-item wow fadeInUp" data-wow-delay="0.1s">
+    <div class="blog-img"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1400&q=80" alt="Skincare autunnale: come preparare la pelle al cambio stagione" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="flex items-center justify-between text-xs text-taupe mb-4">
+        <span class="flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" class="text-rose"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 18 Set 2024</span>
+        <span class="flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" class="text-rose"><path d="M21 12a8 8 0 01-11 7l-5 1 1-5a8 8 0 117-11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 7 Commenti</span>
+      </div>
+      <a href="#" class="block font-display text-xl font-semibold text-ink hover:text-rose transition mb-3">Skincare autunnale: come preparare la pelle al cambio stagione</a>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Con l'arrivo dell'autunno la pelle ha bisogno di attenzioni specifiche. Scopri quali ingredienti privilegiare e quali abitudini adottare per mantenere l'idratazione e proteggere la barriera cutanea dai primi freddi.</p>
+      <a href="#" class="btn-rose sm">Leggi articolo</a>
+    </div>
+  </article>
+  <article class="blog-item wow fadeInUp" data-wow-delay="0.3s">
+    <div class="blog-img"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1400&q=80" alt="I benefici del massaggio drenante per gambe leggere" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="flex items-center justify-between text-xs text-taupe mb-4">
+        <span class="flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" class="text-rose"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 5 Ott 2024</span>
+        <span class="flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" class="text-rose"><path d="M21 12a8 8 0 01-11 7l-5 1 1-5a8 8 0 117-11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 12 Commenti</span>
+      </div>
+      <a href="#" class="block font-display text-xl font-semibold text-ink hover:text-rose transition mb-3">I benefici del massaggio drenante per gambe leggere</a>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Il massaggio linfodrenante è un alleato prezioso contro gonfiore e ritenzione idrica. Vediamo come funziona questa tecnica manuale e perché inserirla nella routine di benessere può fare davvero la differenza.</p>
+      <a href="#" class="btn-rose sm">Leggi articolo</a>
+    </div>
+  </article>
+  <article class="blog-item wow fadeInUp" data-wow-delay="0.5s">
+    <div class="blog-img"><img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=1400&q=80" alt="Trucco semipermanente: tutto quello che devi sapere prima di farlo" class="w-full h-full object-cover" loading="lazy"></div>
+    <div class="p-6">
+      <div class="flex items-center justify-between text-xs text-taupe mb-4">
+        <span class="flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" class="text-rose"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 22 Ott 2024</span>
+        <span class="flex items-center gap-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" class="text-rose"><path d="M21 12a8 8 0 01-11 7l-5 1 1-5a8 8 0 117-11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 9 Commenti</span>
+      </div>
+      <a href="#" class="block font-display text-xl font-semibold text-ink hover:text-rose transition mb-3">Trucco semipermanente: tutto quello che devi sapere prima di farlo</a>
+      <p class="text-sm text-taupe leading-relaxed mb-5">Sopracciglia e labbra perfette senza ritocchi quotidiani. Una guida completa per capire come funziona il trucco semipermanente, quanto dura, quali precauzioni prendere e come scegliere il professionista giusto.</p>
+      <a href="#" class="btn-rose sm">Leggi articolo</a>
+    </div>
+  </article></div>
+</div></section>
+
+<footer id="contatti" class="bg-ink text-white/75 pt-20 pb-8"><div class="container">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+    <div>
+      <div class="flex items-center gap-3 mb-5"><div class="w-11 h-11 rounded-full bg-rose flex items-center justify-center text-white"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3c-1 3-3 5-3 8a3 3 0 006 0c0-3-2-5-3-8z" fill="currentColor"/><path d="M5 11c1-1 3-1 4 0s1 3 0 4-3 1-4 0-1-3 0-4zM19 11c-1-1-3-1-4 0s-1 3 0 4 3 1 4 0 1-3 0-4z" fill="currentColor" opacity="0.7"/></svg></div><span class="font-display text-2xl font-semibold text-white">Centro Estetico</span></div>
+      <p class="text-sm leading-relaxed text-white/60 mb-6">Centro estetico specializzato in trattamenti viso, corpo e benessere. Da oltre dieci anni offriamo professionalità, prodotti di qualità e un ambiente curato dove ogni cliente può ritrovare il proprio equilibrio.</p>
+      <div class="flex items-center gap-2"><a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-rose hover:border-rose transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .3-2 2-2h2V2.2C16.7 2.1 15.4 2 14 2c-3 0-5 2-5 5v3H6v4h3v8h4z"/></svg></a><a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-rose hover:border-rose transition"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a></div>
+    </div>
+    <div><h5 class="text-white font-display text-xl mb-5">Quick Links</h5><ul class="space-y-3 text-sm"><li><a href="#about" class="hover:text-rose">Chi siamo</a></li><li><a href="#servizi" class="hover:text-rose">Servizi</a></li><li><a href="#team" class="hover:text-rose">Team</a></li><li><a href="#blog" class="hover:text-rose">Blog</a></li><li><a href="#prenota" class="hover:text-rose">Prenota</a></li></ul></div>
+    <div><h5 class="text-white font-display text-xl mb-5">Contatti</h5><ul class="space-y-3 text-sm"></ul></div>
+    <div><h5 class="text-white font-display text-xl mb-5">Orari</h5><ul class="space-y-3 text-sm"><li class="flex justify-between"><span>Lun–Ven</span><span class="text-white">9:00 - 19:00</span></li><li class="flex justify-between"><span>Sabato</span><span class="text-white">9:00 - 17:00</span></li><li class="flex justify-between"><span>Domenica</span><span class="text-rose">Chiuso</span></li></ul></div>
+  </div>
+  <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs text-white/40"><div>© 2026 Centro Estetico. Sito demo.</div><div>Realizzato da Sandbox</div></div>
+</div></footer>
+
+<a id="toTop" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 19V5m0 0l-7 7m7-7l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+
+<script>
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('spinner').classList.add('hide'),400));
+const wowIO=new IntersectionObserver((es)=>es.forEach(x=>{if(x.isIntersecting){x.target.style.animationDelay=x.target.dataset.wowDelay||'0s';x.target.classList.add('animated');wowIO.unobserve(x.target)}}),{threshold:0.1});
+document.querySelectorAll('.wow').forEach(el=>wowIO.observe(el));
+const mB=document.getElementById('menuBtn'),cB=document.getElementById('closeBtn'),mM=document.getElementById('mobileMenu');
+mB.addEventListener('click',()=>mM.classList.remove('translate-x-full'));cB.addEventListener('click',()=>mM.classList.add('translate-x-full'));
+mM.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mM.classList.add('translate-x-full')));
+const hS=document.querySelectorAll('.hero-slide');let hI=0;const hShow=(i)=>hS.forEach((s,k)=>s.classList.toggle('active',k===i));
+const hN=()=>{hI=(hI+1)%hS.length;hShow(hI)};document.getElementById('heroNext').addEventListener('click',hN);document.getElementById('heroPrev').addEventListener('click',()=>{hI=(hI-1+hS.length)%hS.length;hShow(hI)});setInterval(hN,6000);
+const tS=document.querySelectorAll('.testi-slide');let tI=0;const tShow=(i)=>tS.forEach((s,k)=>s.classList.toggle('active',k===i));
+document.getElementById('testiNext').addEventListener('click',()=>{tI=(tI+1)%tS.length;tShow(tI)});document.getElementById('testiPrev').addEventListener('click',()=>{tI=(tI-1+tS.length)%tS.length;tShow(tI)});setInterval(()=>{tI=(tI+1)%tS.length;tShow(tI)},7000);
+const tT=document.getElementById('toTop');window.addEventListener('scroll',()=>{if(window.scrollY>400)tT.classList.add('show');else tT.classList.remove('show')},{passive:true});
+</script>
+</body>
+</html>
