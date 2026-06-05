@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barberia Centrale | Roma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#16171a;
+    --bg2:#1c1e22;
+    --paper:#ece6dc;
+    --card:#202227;
+    --tan:#bb9461;
+    --tan2:#d2ad77;
+    --muted:#8a857c;
+    --line:rgba(236,230,220,.13);--font-head:'Oswald',sans-serif;--font-body:'Jost',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--paper);font-family:var(--font-body);font-weight:300;line-height:1.72;overflow-x:hidden}
+  ::selection{background:var(--tan);color:var(--bg)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  h1,h2,h3,.disp{font-family:var(--font-head);font-weight:600;text-transform:uppercase;line-height:1.04;letter-spacing:.01em}
+  .label{font-family:var(--font-head);text-transform:uppercase;letter-spacing:.22em;font-size:.74rem;font-weight:500;color:var(--tan2)}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.34s}
+
+  .util{background:#0f1012;color:rgba(236,230,220,.78);font-size:.8rem}
+  .util .wrap{display:flex;justify-content:space-between;align-items:center;height:40px;flex-wrap:wrap}
+  .util a{color:rgba(236,230,220,.78);text-decoration:none}
+  .util .r{display:flex;gap:22px}
+  @media(max-width:680px){.util .r span:nth-child(2){display:none}}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(22,23,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .logo{font-family:var(--font-head);font-weight:700;font-size:1.5rem;letter-spacing:.06em;text-transform:uppercase}
+  .logo small{display:block;font-family:var(--font-body);font-size:.56rem;letter-spacing:.32em;color:var(--tan2);font-weight:400;margin-top:-2px}
+  .navlinks{display:flex;gap:34px;font-family:var(--font-head);font-weight:400;text-transform:uppercase;letter-spacing:.08em;font-size:.92rem}
+  .navlinks a{color:var(--paper);opacity:.82;text-decoration:none;transition:.25s}
+  .navlinks a:hover{opacity:1;color:var(--tan2)}
+  .book{background:var(--tan);color:var(--bg);padding:11px 26px;text-decoration:none;font-family:var(--font-head);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.86rem;transition:.3s}
+  .book:hover{background:var(--tan2)}
+  @media(max-width:880px){.navlinks{display:none}}
+
+  /* HERO */
+  header{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.4) contrast(1.05) brightness(.46)}
+  .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,23,26,.92) 30%,rgba(22,23,26,.5) 75%)}
+  .hero-txt{position:relative;z-index:2;padding:70px 0}
+  .hero-txt h1{font-size:clamp(2.8rem,6vw,5rem);margin:18px 0;font-weight:700}
+  .hero-txt h1 .tan{color:var(--tan)}
+  .hero-txt p{font-size:1.14rem;color:rgba(236,230,220,.82);max-width:440px;margin-bottom:32px}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{font-family:var(--font-head);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.92rem;padding:13px 32px;text-decoration:none;display:inline-block;transition:.3s}
+  .btn-fill{background:var(--tan);color:var(--bg)}
+  .btn-fill:hover{background:var(--tan2)}
+  .btn-out{border:1px solid var(--line);color:var(--paper)}
+  .btn-out:hover{border-color:var(--tan);color:var(--tan2)}
+
+  /* TRUST */
+  .trust{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:42px 32px;text-align:center}
+  .trust .n{font-family:var(--font-head);font-weight:700;font-size:2.6rem;color:var(--tan)}
+  .trust .t{color:var(--muted);font-size:.86rem}
+  @media(max-width:680px){.trust .wrap{grid-template-columns:1fr 1fr;gap:30px 20px}}
+
+  section{padding:96px 0}
+  .head{text-align:center;max-width:680px;margin:0 auto 56px}
+  .head h2{font-size:clamp(2rem,4.5vw,3rem);margin:12px 0}
+  .head p{color:var(--muted)}
+
+  /* ABOUT */
+  .about .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+  .about img{width:100%;border-radius:3px;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.25)}
+  .about h2{font-size:clamp(2rem,4.5vw,3rem);margin:12px 0 20px}
+  .about p{color:rgba(236,230,220,.82);margin-bottom:16px}
+  .about ul{list-style:none;margin-top:24px;display:grid;gap:14px}
+  .about li{display:flex;gap:14px}
+  .about li::before{content:'—';color:var(--tan)}
+  .about li b{font-weight:500;color:var(--paper)}
+  @media(max-width:880px){.about .grid{grid-template-columns:1fr}}
+
+  /* SERVICES */
+  .services{background:var(--bg2)}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+  .svc-cat{grid-column:1/-1;font-family:var(--font-head);font-weight:600;text-transform:uppercase;font-size:1.1rem;letter-spacing:.08em;color:var(--tan2);margin:30px 0 4px}
+  .svc{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .svc .nm{font-family:var(--font-head);font-weight:500;text-transform:uppercase;font-size:1.18rem;letter-spacing:.02em}
+  .svc .ds{color:var(--muted);font-size:.84rem;margin-top:2px;font-family:var(--font-body)}
+  .svc .pr{font-family:var(--font-head);font-weight:600;font-size:1.3rem;color:var(--tan)}
+  @media(max-width:880px){.svc-grid{grid-template-columns:1fr;gap:0}}
+
+  /* TEAM */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .member{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:3/4}
+  .member img{width:100%;height:100%;object-fit:cover;filter:grayscale(.45);transition:.4s}
+  .member:hover img{filter:grayscale(0)}
+  .member::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(22,23,26,.92),transparent 55%)}
+  .member .info{position:absolute;left:20px;bottom:18px;z-index:2}
+  .member h3{font-size:1.4rem}
+  .member .role{font-family:var(--font-head);font-weight:400;text-transform:uppercase;letter-spacing:.08em;color:var(--tan2);font-size:.82rem}
+  @media(max-width:880px){.team-grid{grid-template-columns:1fr 1fr}}
+
+  /* GALLERY */
+  .gallery{background:var(--bg2)}
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .gal img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:3px;filter:grayscale(.3);transition:.4s}
+  .gal img:hover{filter:grayscale(0)}
+  @media(max-width:680px){.gal{grid-template-columns:1fr 1fr}}
+
+  /* REVIEWS */
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rev{background:var(--card);border:1px solid var(--line);padding:30px;border-radius:3px}
+  .rev .stars{color:var(--tan);letter-spacing:.2em;font-size:.85rem;margin-bottom:14px}
+  .rev p{font-size:1.04rem;color:var(--paper)}
+  .rev cite{display:block;margin-top:14px;color:var(--muted);font-size:.85rem;font-style:normal}
+  @media(max-width:880px){.rev-grid{grid-template-columns:1fr}}
+
+  /* BOOKING */
+  .booking .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .booking h2{font-size:clamp(2rem,4.5vw,3rem);margin:12px 0 18px}
+  .booking .info{color:rgba(236,230,220,.78);margin-bottom:28px}
+  .info-row{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+  .info-row .k{font-family:var(--font-head);font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--tan2);min-width:100px;font-size:.95rem}
+  .info-row .v{color:rgba(236,230,220,.9)}
+  form{display:grid;gap:14px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label{font-family:var(--font-head);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:block;margin-bottom:6px;font-weight:400}
+  input,select,textarea{width:100%;background:var(--card);border:1px solid var(--line);color:var(--paper);padding:12px 14px;font-family:var(--font-body);font-size:.95rem;border-radius:2px}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--tan)}
+  select option{color:#222}
+  .submit{background:var(--tan);color:var(--bg);border:none;padding:15px;font-family:var(--font-head);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.92rem;cursor:pointer;transition:.3s}
+  .submit:hover{background:var(--tan2)}
+  .ok{display:none;background:rgba(187,148,97,.16);border:1px solid var(--tan);padding:14px;border-radius:2px;font-size:.92rem}
+  @media(max-width:880px){.booking .grid{grid-template-columns:1fr}.frow{grid-template-columns:1fr}}
+
+  footer{background:#0f1012;color:rgba(236,230,220,.7);padding:54px 0 30px}
+  footer .grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:34px}
+  footer .logo{color:var(--paper);margin-bottom:12px}
+  footer h4{color:var(--tan2);text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;margin-bottom:14px;font-weight:400;font-family:var(--font-head)}
+  footer a{color:rgba(236,230,220,.7);text-decoration:none;display:block;padding:4px 0;font-size:.92rem}
+  footer a:hover{color:var(--tan2)}
+  footer .copy{border-top:1px solid var(--line);padding-top:22px;text-align:center;font-size:.82rem}
+  @media(max-width:880px){footer .grid{grid-template-columns:1fr}}
+:root{--bg:#1a1612;--bg2:#252018;--paper:#ece6dc;--card:#2d2620;--tan:#c9a063;--tan2:#d4b57f;--muted:#a39888;--line:rgba(236,230,220,.13);--font-head:'Oswald',sans-serif;--font-body:'Jost',sans-serif;}</style>
+</head>
+<body>
+<div class="util">
+  <div class="wrap">
+    <span>Via Borgo Santa Caterina 19</span>
+    <div class="r">
+      <span>Mar–Sab · 9:00–19:30</span>
+      <span><a href="tel:0352249087">035 224 9087</a></span>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Bottega del Barbiere<small>Bergamo</small></div>
+    <div class="navlinks">
+      <a href="#bottega">La bottega</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#team">Barbieri</a>
+      <a href="#recensioni">Recensioni</a>
+      <a href="#prenota">Contatti</a>
+    </div>
+    <a href="#prenota" class="book">Prenota</a>
+  </div>
+</nav>
+
+<header>
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1600&q=80" alt="Interno della barberia"></div>
+  <div class="wrap hero-txt">
+    <span class="label reveal in">Barberia · Bergamo</span>
+    <h1 class="reveal in d1">L'arte della barberia tradizionale</h1>
+    <p class="reveal in d2">Dal 2009 il punto di riferimento per l'uomo che cerca stile e qualità</p>
+    <div class="hero-actions reveal in d3">
+      <a href="#prenota" class="btn btn-fill">Prenota un appuntamento</a>
+      <a href="#servizi" class="btn btn-out">Servizi e prezzi</a>
+    </div>
+  </div>
+</header>
+
+<div class="trust">
+  <div class="wrap">
+    <div><div class="n">15+</div><div class="t">anni di attività</div></div>
+    <div><div class="n">4</div><div class="t">barbieri</div></div>
+    <div><div class="n">4.9★</div><div class="t">298 recensioni</div></div>
+    <div><div class="n">No&nbsp;stress</div><div class="t">prenotazione semplice</div></div>
+  </div>
+</div>
+
+<section id="bottega" class="about">
+  <div class="wrap grid">
+    <div class="reveal">
+      <span class="label">La bottega</span>
+      <h2>Il mestiere, prima di tutto</h2>
+      <p>Bottega del Barbiere rappresenta il perfetto equilibrio tra tradizione e modernità. In un ambiente che richiama le botteghe d'antan, offriamo servizi di barberia classica eseguiti con maestria e attenzione ai dettagli. Ogni cliente viene accolto in un'atmosfera rilassata ed elegante, dove il tempo rallenta e la cura personale diventa un rituale da vivere. I nostri barbieri uniscono tecniche tradizionali a prodotti di alta qualità, garantendo risultati sempre impeccabili.</p>
+      <p>Niente catena, niente fretta: solo barbieri esperti, lame affilate e prodotti professionali. Ogni cliente esce con un risultato pulito e duraturo.</p>
+      <ul><li><span>Barbieri esperti formati nelle tecniche classiche</span></li><li><span>Prodotti professionali selezionati per ogni tipo di barba e capello</span></li><li><span>Ambiente vintage curato in ogni dettaglio</span></li></ul>
+    </div>
+    <img class="reveal d1" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=700&q=80" alt="Barbiere al lavoro">
+  </div>
+</section>
+
+<section id="servizi" class="services">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="label">Listino</span>
+      <h2>Servizi e prezzi</h2>
+      <p>Tutti i tagli includono consulenza, lavaggio e styling finale. Prezzi chiari, nessuna sorpresa al momento del conto.</p>
+    </div>
+    <div class="svc-grid reveal">
+      <div class="svc"><div><div class="nm">Taglio Classico</div><div class="ds">Taglio tradizionale eseguito con forbici e rasoio, studiato sulle proporzioni del viso per un risultato armonioso e duraturo</div></div></div><div class="svc"><div><div class="nm">Rasatura Completa</div><div class="ds">Rasatura tradizionale con rasoio a mano libera, panni caldi e prodotti emollienti per una pelle perfettamente liscia e curata</div></div></div><div class="svc"><div><div class="nm">Rifinitura Barba</div><div class="ds">Definizione e rimodellamento della barba con rasoio e rifinitore, per linee precise e forma impeccabile</div></div></div><div class="svc"><div><div class="nm">Taglio e Barba</div><div class="ds">Servizio completo che abbina taglio capelli e sistemazione barba per un look coordinato e curato</div></div></div><div class="svc"><div><div class="nm">Barba Lunga</div><div class="ds">Trattamento specifico per barbe lunghe: lavaggio, modellatura, oli nutrienti e styling per mantenerla sana e ordinata</div></div></div><div class="svc"><div><div class="nm">Colore Barba</div><div class="ds">Colorazione professionale per coprire i capelli bianchi o uniformare il tono della barba con prodotti naturali</div></div></div>
+    </div>
+</section>
+
+<section id="team" class="wrap">
+  <div class="head reveal">
+    <span class="label">La squadra</span>
+    <h2>I nostri barbieri</h2>
+  </div>
+  <div class="team-grid">
+    <div class="member reveal d0"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=80" alt=""><div class="info"><h3>Marco Santini</h3><div class="role">Master Barber</div></div></div><div class="member reveal d1"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&q=80" alt=""><div class="info"><h3>Luca Ferretti</h3><div class="role">Barbiere Specializzato</div></div></div><div class="member reveal d2"><img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?w=600&q=80" alt=""><div class="info"><h3>Alessandro Rossi</h3><div class="role">Barbiere Tradizionale</div></div></div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="label">Lavori</span>
+      <h2>Alcuni risultati</h2>
+    </div>
+    <div class="gal reveal">
+      <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=500&q=80" alt="">
+      <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=500&q=80" alt="">
+      <img src="https://images.unsplash.com/photo-1596728325488-58c87691e9af?w=500&q=80" alt="">
+      <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?w=500&q=80" alt="">
+    </div>
+  </div>
+</section>
+
+<section id="recensioni" class="wrap">
+  <div class="head reveal">
+    <span class="label">Dicono di noi</span>
+    <h2>Recensioni dei clienti</h2>
+  </div>
+  <div class="rev-grid">
+    <div class="rev reveal"><div class="stars">★★★★★</div><p>«Ambiente curato e atmosfera d'altri tempi. La rasatura tradizionale è un'esperienza che consiglio a tutti, eseguita con maestria e attenzione. Finalmente un barbiere vero a Bergamo.»</p><cite>Giovanni M.</cite></div><div class="rev reveal"><div class="stars">★★★★★</div><p>«Vengo qui da anni e non cambierei mai. Professionalità, cortesia e risultati sempre impeccabili. Il taglio dura settimane e la barba è sempre perfetta. Consigliatissimo.»</p><cite>Roberto C.</cite></div><div class="rev reveal"><div class="stars">★★★★★</div><p>«Locale elegante in stile vintage, barbieri competenti e servizio di qualità. Il rapporto qualità prezzo è ottimo e l'attenzione ai dettagli fa la differenza. Ci torno sempre volentieri.»</p><cite>Stefano B.</cite></div>
+  </div>
+</section>
+
+<section id="prenota" class="booking">
+  <div class="wrap grid">
+    <div class="reveal">
+      <span class="label">Prenotazioni & contatti</span>
+      <h2>Fissa il tuo appuntamento</h2>
+      <p class="info">Compila il modulo e ti ricontatteremo per confermare. Per richieste dell'ultimo minuto, una telefonata è la via più rapida.</p>
+      <div class="info-row"><div class="k">Indirizzo</div><div class="v">Via Borgo Santa Caterina 19</div></div>
+      <div class="info-row"><div class="k">Telefono</div><div class="v"><a href="tel:0352249087" style="color:inherit;text-decoration:none">035 224 9087</a></div></div>
+      <div class="info-row"><div class="k">Email</div><div class="v">info@bottegadelbarbiere.it</div></div>
+      <div class="info-row"><div class="k">Orari</div><div class="v">9:00 - 19:30 · Chiuso</div></div>
+    </div>
+    <div class="reveal d1">
+      <form id="form">
+        <div><label>Nome e cognome</label><input required placeholder="Il tuo nome"></div>
+        <div class="frow">
+          <div><label>Telefono</label><input required placeholder="Il tuo numero"></div>
+          <div><label>Servizio</label>
+            <select><option>Taglio Classico</option><option>Rasatura Completa</option><option>Rifinitura Barba</option><option>Taglio e Barba</option><option>Barba Lunga</option><option>Colore Barba</option></select>
+          </div>
+        </div>
+        <div class="frow">
+          <div><label>Data preferita</label><input type="date"></div>
+          <div><label>Barbiere</label>
+            <select><option>Indifferente</option><option>Marco Santini</option><option>Luca Ferretti</option><option>Alessandro Rossi</option></select>
+          </div>
+        </div>
+        <div><label>Note (facoltativo)</label><textarea rows="3" placeholder="Es. tipo di taglio, lunghezza…"></textarea></div>
+        <button type="submit" class="submit">Invia richiesta</button>
+        <div class="ok" id="ok">Grazie! Abbiamo ricevuto la tua richiesta: ti ricontatteremo a breve per confermare.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="logo disp" style="font-size:1.4rem">Bottega del Barbiere</div>
+        <p style="font-size:.92rem;max-width:320px">Bottega del Barbiere è il punto di riferimento a Bergamo per chi cerca un servizio di barberia tradizionale di qualità. Professionalità, esperienza e passione in un ambiente elegante e accogliente.</p>
+      </div>
+      <div>
+        <h4>Orari</h4>
+        <a>9:00 - 19:30</a>
+        <a>Chiuso</a>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <a href="#">Via Borgo Santa Caterina 19</a>
+        <a href="tel:0352249087">035 224 9087</a>
+        <a href="#">info@bottegadelbarbiere.it</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 Bottega del Barbiere · Sito demo</div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+  document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').style.display='block';e.target.querySelector('.submit').textContent='Richiesta inviata';});
+</script>
+</body>
+</html>
