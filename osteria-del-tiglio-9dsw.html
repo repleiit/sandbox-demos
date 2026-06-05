@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Osteria del Tiglio — Cucina di territorio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f6efe2;
+    --paper:#fbf6ec;
+    --wine:#5a1b1f;
+    --wine2:#7a2a2c;
+    --terra:#c2683c;
+    --olive:#6f7340;
+    --ink:#2a1f18;
+    --muted:#8a7b6a;
+    --line:rgba(90,27,31,.16);--font-head:'Fraunces',serif;--font-body:'Manrope',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--font-body);line-height:1.7;overflow-x:hidden}
+  ::selection{background:var(--terra);color:var(--paper)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 30px}
+  h1,h2,h3,.serif{font-family:var(--font-head);font-weight:400;line-height:1.05}
+  .reveal{opacity:0;transform:translateY(24px);animation:up 1s forwards}
+  @keyframes up{to{opacity:1;transform:none}}
+  .d1{animation-delay:.1s}.d2{animation-delay:.28s}.d3{animation-delay:.46s}.d4{animation-delay:.62s}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:40;background:rgba(246,239,226,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .logo{font-family:var(--font-head);font-size:1.5rem;font-style:italic;color:var(--wine);letter-spacing:.01em}
+  .navlinks{display:flex;gap:34px;font-size:.92rem;font-weight:500;letter-spacing:.02em}
+  .navlinks a{color:var(--ink);text-decoration:none;position:relative;transition:color .25s}
+  .navlinks a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--terra);transition:width .3s}
+  .navlinks a:hover{color:var(--terra)}.navlinks a:hover::after{width:100%}
+  .resv{border:1px solid var(--wine);color:var(--wine);padding:11px 22px;border-radius:40px;text-decoration:none;font-weight:600;font-size:.9rem;transition:.3s}
+  .resv:hover{background:var(--wine);color:var(--paper)}
+  @media(max-width:840px){.navlinks{display:none}}
+
+  /* HERO */
+  header{padding:150px 0 80px;position:relative}
+  .star{position:absolute;font-family:var(--font-head);color:var(--terra);opacity:.5}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--terra);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;margin-bottom:24px}
+  .eyebrow::before{content:'';width:30px;height:1px;background:var(--terra)}
+  h1{font-size:clamp(3rem,7.5vw,5.6rem);color:var(--wine)}
+  h1 em{font-style:italic;color:var(--terra)}
+  .hero p{font-size:1.18rem;color:var(--muted);max-width:430px;margin:28px 0 36px}
+  .hero-cta{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+  .btn{background:var(--wine);color:var(--paper);padding:15px 32px;border-radius:44px;text-decoration:none;font-weight:600;transition:.3s;display:inline-block}
+  .btn:hover{background:var(--wine2);transform:translateY(-2px)}
+  .link{color:var(--ink);text-decoration:none;font-weight:600;border-bottom:1px solid var(--terra);padding-bottom:3px}
+  .hero-img{position:relative;border-radius:200px 200px 14px 14px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 30px 60px -20px rgba(90,27,31,.4)}
+  .hero-img img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+  .badge{position:absolute;bottom:24px;right:-18px;background:var(--paper);border:1px solid var(--line);border-radius:50%;width:118px;height:118px;display:grid;place-items:center;text-align:center;font-family:var(--font-head);font-style:italic;color:var(--wine);line-height:1.15;box-shadow:0 14px 30px rgba(0,0,0,.12);animation:spin 18s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(max-width:840px){.hero-grid{grid-template-columns:1fr}.hero-img{max-width:440px;margin:0 auto}}
+
+  /* STRIP */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:30px;padding:30px 0}
+  .strip .wrap{display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px;text-align:center}
+  .strip .it span{display:block;font-family:var(--font-head);font-style:italic;font-size:1.9rem;color:var(--wine)}
+  .strip .it small{color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-size:.72rem}
+
+  section{padding:96px 0}
+  .sec-label{text-align:center;color:var(--terra);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;margin-bottom:14px}
+  .sec-title{text-align:center;font-size:clamp(2.3rem,5vw,3.6rem);color:var(--wine);margin-bottom:54px}
+  .sec-title em{font-style:italic;color:var(--terra)}
+
+  /* ABOUT */
+  .about{background:var(--wine);color:var(--paper)}
+  .about .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:center}
+  .about img{width:100%;border-radius:14px;aspect-ratio:4/5;object-fit:cover}
+  .about h2{font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:22px}
+  .about h2 em{font-style:italic;color:var(--terra)}
+  .about p{color:rgba(251,246,236,.82);font-size:1.08rem;margin-bottom:18px}
+  .sign{font-family:var(--font-head);font-style:italic;font-size:1.6rem;color:var(--terra);margin-top:14px}
+  @media(max-width:840px){.about .grid{grid-template-columns:1fr}}
+
+  /* MENU */
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 64px}
+  .dish{display:flex;justify-content:space-between;gap:18px;padding:20px 0;border-bottom:1px dashed var(--line);align-items:baseline}
+  .dish .d-name{font-family:var(--font-head);font-size:1.3rem;color:var(--ink)}
+  .dish .d-desc{color:var(--muted);font-size:.92rem;margin-top:3px}
+  .dish .d-price{font-family:var(--font-head);font-style:italic;font-size:1.3rem;color:var(--terra);white-space:nowrap}
+  .menu-cat{grid-column:1/-1;font-family:var(--font-head);font-style:italic;color:var(--olive);font-size:1.1rem;letter-spacing:.04em;margin-top:24px;text-transform:uppercase}
+  @media(max-width:840px){.menu-grid{grid-template-columns:1fr;gap:0}}
+
+  /* GALLERY */
+  .gallery{background:var(--paper)}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;border-radius:10px;aspect-ratio:1;transition:.5s;filter:saturate(1.02)}
+  .gal-grid a:nth-child(1){grid-row:span 2}
+  .gal-grid a:nth-child(1) img{aspect-ratio:1/2}
+  .gal-grid a:nth-child(4){grid-column:span 2}
+  .gal-grid a:nth-child(4) img{aspect-ratio:2/1}
+  .gal-grid img:hover{transform:scale(1.03)}
+  @media(max-width:840px){.gal-grid{grid-template-columns:1fr 1fr}.gal-grid a:nth-child(4){grid-column:span 2}.gal-grid a:nth-child(4) img,.gal-grid a:nth-child(1) img{aspect-ratio:1}}
+
+  /* RESERVE CTA */
+  .reserve{text-align:center}
+  .reserve h2{font-size:clamp(2.4rem,6vw,4rem);color:var(--wine)}
+  .reserve h2 em{font-style:italic;color:var(--terra)}
+  .reserve p{color:var(--muted);margin:20px 0 34px;font-size:1.1rem}
+
+  footer{background:var(--wine);color:rgba(251,246,236,.8);padding:60px 0 34px}
+  footer .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  footer h4{font-family:var(--font-head);font-style:italic;color:var(--terra);font-size:1.3rem;margin-bottom:14px}
+  footer .logo{color:var(--paper);font-size:1.7rem;margin-bottom:14px}
+  footer a{color:rgba(251,246,236,.8);text-decoration:none;display:block;padding:4px 0}
+  footer .copy{border-top:1px solid rgba(251,246,236,.18);padding-top:24px;text-align:center;font-size:.85rem}
+  @media(max-width:840px){footer .grid{grid-template-columns:1fr}}
+:root{--cream:#F5F1E8;--paper:#FFFDF9;--wine:#5C2E2E;--wine2:#8B5A5A;--terra:#C17A3A;--olive:#7A8450;--ink:#2B2520;--muted:#6B625A;--line:rgba(92, 46, 46, 0.16);--font-head:'Cormorant Garamond', serif;--font-body:'Jost', sans-serif;}</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <div class="logo">Osteria del Tiglio</div>
+    <div class="navlinks">
+      <a href="#storia">La storia</a>
+      <a href="#menu">Il menù</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#prenota">Dove siamo</a>
+    </div>
+    <a href="#prenota" class="resv">Prenota un tavolo</a>
+  </div>
+</nav>
+
+<header>
+  <span class="star" style="top:120px;left:6%;font-size:2rem">✦</span>
+  <span class="star" style="top:340px;right:48%;font-size:1.2rem">✦</span>
+  <div class="wrap hero-grid">
+    <div class="hero">
+      <div class="eyebrow reveal d1">Brescia</div>
+      <h1 class="reveal d1">Osteria del Tiglio</h1>
+      <p class="reveal d2">Cucina tipica bresciana nel cuore di Brescia</p>
+      <div class="hero-cta reveal d3">
+        <a href="#prenota" class="btn">Prenota un tavolo</a>
+        <a href="#menu" class="link">Sfoglia il menù →</a>
+      </div>
+    </div>
+    <div class="hero-img reveal d2">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="Sala del ristorante">
+      <div class="badge">Cucina<br>aperta<br>fino<br>23:00</div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="it"><span>0 km</span><small>Ingredienti locali</small></div>
+    <div class="it"><span>18+</span><small>anni di tradizione</small></div>
+    <div class="it"><span>4.8★</span><small>213 recensioni</small></div>
+    <div class="it"><span>Slow</span><small>Cucina di stagione</small></div>
+  </div>
+</div>
+
+<section id="storia" class="about">
+  <div class="wrap grid">
+    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=700&q=80" alt="Lo chef">
+    <div>
+      <div class="sec-label" style="text-align:left;color:var(--terra)">La nostra storia</div>
+      <h2>Tre generazioni<br>nella stessa <em>cucina</em></h2>
+      <p>L'Osteria del Tiglio è un punto di riferimento per chi cerca la vera cucina bresciana. Nel nostro ambiente rustico ed elegante prepariamo ogni giorno paste fresche seguendo le ricette della tradizione, cuociamo carni selezionate alla brace e proponiamo una cantina ricca di vini del territorio. Ogni piatto racconta la storia e i sapori della nostra terra, con ingredienti scelti con cura e lavorati con passione dalla nostra brigata.</p>
+      <p>Selezioniamo i produttori uno a uno, cuciniamo solo ciò che la stagione ci regala e serviamo ogni piatto come lo serviremmo alla nostra tavola di famiglia.</p>
+      <div class="sign">— Osteria del Tiglio</div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="wrap">
+  <div class="sec-label">Il nostro menù</div>
+  <h2 class="sec-title">Piatti <em>di stagione</em></h2>
+  <div class="menu-grid">
+    <div class="dish"><div><div class="d-name">Casoncelli alla Bresciana</div><div class="d-desc">Pasta fresca ripiena di carne, amaretti e mostarda, mantecata con burro fuso e salvia, spolverata con grana padano</div></div></div><div class="dish"><div><div class="d-name">Tagliatelle al Ragù di Manzo</div><div class="d-desc">Pasta all'uovo tirata a mano, condita con ragù di manzo nostrano cotto lentamente con vino rosso e aromi</div></div></div><div class="dish"><div><div class="d-name">Costata di Manzo alla Brace</div><div class="d-desc">Costata di manzo di razza piemontese cotta alla brace, servita con patate arrosto e verdure di stagione</div></div></div><div class="dish"><div><div class="d-name">Spiedo Bresciano</div><div class="d-desc">Carni miste di vitello, maiale e pollame cotte lentamente allo spiedo, con polenta fumante</div></div></div><div class="dish"><div><div class="d-name">Risotto con Bagòss e Noci</div><div class="d-desc">Riso carnaroli mantecato con formaggio bagòss stagionato, noci tostate e un tocco di burro locale</div></div></div><div class="dish"><div><div class="d-name">Brasato al Franciacorta</div><div class="d-desc">Guancia di manzo brasata nel vino Franciacorta con verdure, servita con polenta morbida</div></div></div><div class="dish"><div><div class="d-name">Tortelli di Zucca</div><div class="d-desc">Pasta fresca ripiena di zucca mantovana, amaretti e mostarda, conditi con burro e salvia</div></div></div><div class="dish"><div><div class="d-name">Tagliata di Fassona</div><div class="d-desc">Filetto di fassona piemontese grigliato, tagliato e servito su letto di rucola con scaglie di grana</div></div></div>
+  </div>
+</section>
+
+<section id="galleria" class="gallery">
+  <div class="wrap">
+    <div class="sec-label">Galleria</div>
+    <h2 class="sec-title">Un assaggio della <em>nostra tavola</em></h2>
+    <div class="gal-grid">
+      <a href="#"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600&q=80" alt=""></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=80" alt=""></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80" alt=""></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt=""></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80" alt=""></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&q=80" alt=""></a>
+    </div>
+  </div>
+</section>
+
+<section id="prenota" class="reserve wrap">
+  <div class="sec-label">Vi aspettiamo</div>
+  <h2>Riservate il <em>vostro tavolo</em></h2>
+  <p>12:00 - 14:30, 19:00 - 22:30 · 12:00 - 14:30, 19:00 - 23:00 · 12:00 - 14:30<br>Via dei Mille 27</p>
+  <a href="#" class="btn">Prenota online</a>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="logo serif" style="font-style:italic">Osteria del Tiglio</div>
+        <p>Osteria del Tiglio è il luogo dove la cucina bresciana si esprime con autenticità e passione. Vieni a trovarci per gustare i sapori della nostra terra in un ambiente rustico ed elegante.</p>
+      </div>
+      <div>
+        <h4>Orari</h4>
+        <a>12:00 - 14:30, 19:00 - 22:30</a>
+        <a>12:00 - 14:30, 19:00 - 23:00</a>
+        <a>12:00 - 14:30</a>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <a href="#">Via dei Mille 27</a>
+        <a href="tel:0304125567">030 412 5567</a>
+        <a href="#">info@osteriadeltiglio.it</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 Osteria del Tiglio · Sito demo</div>
+  </div>
+</footer>
+</body>
+</html>
