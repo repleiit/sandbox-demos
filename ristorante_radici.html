@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=' js'</script>
+<title>Radici — Cucina d'Autore · Torino</title>
+<meta name="description" content="Radici, cucina piemontese d'autore a Torino. Materie prime del territorio, tradizione rivisitata. Prenota il tuo tavolo." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f3ece0; --cream-2:#ece1cf; --ink:#171009; --ink-2:#241a0f;
+  --soft:#5b4d3b; --gold:#c79a5b; --gold-deep:#a87a3e; --wine:#6e2b2b;
+  --paper:#efe6d6; --line:rgba(23,16,9,.16); --line-d:rgba(239,230,214,.18);
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Jost',system-ui,-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacing:.005em}
+.eyebrow{font-family:var(--sans);font-weight:500;font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-deep)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.btn{display:inline-block;font-family:var(--sans);font-weight:400;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;padding:15px 30px;border:1px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;transition:all .4s ease}
+.btn:hover{background:var(--ink);color:var(--cream)}
+.btn.gold{border-color:var(--gold-deep);color:var(--ink);background:var(--gold)}
+.btn.gold:hover{background:var(--gold-deep);color:var(--cream)}
+.btn.ghost-light{border-color:var(--paper);color:var(--paper)}
+.btn.ghost-light:hover{background:var(--paper);color:var(--ink)}
+
+/* reveal (no-JS safe) */
+.reveal{transition:opacity 1s ease,transform 1s cubic-bezier(.22,1,.36,1)}
+.js .reveal{opacity:0;transform:translateY(26px)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* INTRO (apertura a due ante) */
+.intro{position:fixed;inset:0;z-index:200;pointer-events:none;animation:introEnd .01s linear forwards 1.42s}
+.intro-panel{position:absolute;left:-2%;right:-2%;height:51%;background:var(--ink);overflow:hidden;will-change:transform}
+.intro-panel::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 50% 100%,rgba(199,154,91,.16),transparent 72%)}
+.intro .pb::after{background:radial-gradient(70% 90% at 50% 0%,rgba(199,154,91,.16),transparent 72%)}
+.pt{top:0;animation:panelUp .68s cubic-bezier(.76,0,.24,1) forwards .68s}
+.pb{bottom:0;animation:panelDown .68s cubic-bezier(.76,0,.24,1) forwards .68s}
+@keyframes panelUp{to{transform:translateY(-100%)}}
+@keyframes panelDown{to{transform:translateY(100%)}}
+.intro-mark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:clamp(2.6rem,8vw,5.2rem);font-weight:600;color:var(--paper);letter-spacing:.04em;animation:markOut .38s ease forwards .82s}
+.intro-mark span{display:inline-block;opacity:0;transform:translateY(36px) rotate(4deg);animation:letterIn .58s cubic-bezier(.2,.85,.25,1) forwards;animation-delay:calc(var(--i)*40ms + 40ms)}
+.intro-mark b{display:inline-block;color:var(--gold);font-weight:500;opacity:0;transform:scale(.3);animation:dotIn .5s cubic-bezier(.2,1.5,.3,1) forwards .34s}
+@keyframes letterIn{to{opacity:1;transform:none}}
+@keyframes dotIn{to{opacity:1;transform:none}}
+@keyframes markOut{to{opacity:0;transform:scale(1.07)}}
+.intro::after{content:"";position:absolute;left:50%;top:50%;width:0;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:translate(-50%,2.7rem);animation:lineDraw .6s ease forwards .22s,lineOut .3s ease forwards .66s}
+@keyframes lineDraw{to{width:min(240px,42vw)}}
+@keyframes lineOut{to{opacity:0}}
+@keyframes introEnd{to{visibility:hidden}}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:22px 32px;transition:background .5s ease,padding .5s ease,box-shadow .5s}
+.nav.scr{background:rgba(243,236,224,.94);backdrop-filter:blur(10px);padding:14px 32px;box-shadow:0 1px 0 var(--line)}
+.brand{font-family:var(--serif);font-size:1.7rem;font-weight:600;letter-spacing:.02em;color:var(--paper);transition:color .5s}
+.brand b{font-weight:500;font-style:italic;color:var(--gold)}
+.nav.scr .brand{color:var(--ink)}
+.nav.scr .brand b{color:var(--gold-deep)}
+.links{display:flex;align-items:center;gap:34px}
+.links a:not(.btn){font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);position:relative;transition:color .5s}
+.nav.scr .links a:not(.btn){color:var(--ink)}
+.links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:currentColor;transition:width .4s}
+.links a:not(.btn):hover::after{width:100%}
+.nav.scr .links .btn{border-color:var(--ink);color:var(--ink)}
+.nav.scr .links .btn:hover{background:var(--ink);color:var(--cream)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:24px;height:1.5px;background:var(--paper);transition:.4s}
+.nav.scr .burger span{background:var(--ink)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:max(600px,100svh);display:flex;align-items:flex-end;color:var(--paper);overflow:hidden}
+.hero-parallax{position:absolute;inset:-12%;z-index:0;will-change:transform;background:#120c06}
+.hero-photo{position:absolute;inset:0;will-change:transform;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1700&q=70') center/cover no-repeat;animation:kb 24s ease-in-out infinite alternate}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.hero-photo::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(rgba(20,11,3,.30),rgba(14,8,2,.74)),radial-gradient(130% 120% at 50% 36%,transparent 45%,rgba(8,5,1,.55))}
+@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.14)}}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 32px 9vh}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:clamp(3rem,8.5vw,6.6rem);margin:.28em 0 .3em;max-width:13ch;font-weight:400}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{font-size:1.12rem;max-width:46ch;color:rgba(239,230,214,.86);margin-bottom:2.2em}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.scrollhint{position:absolute;right:34px;bottom:6vh;z-index:2;writing-mode:vertical-rl;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(239,230,214,.6)}
+.scrollhint::after{content:"";display:block;width:1px;height:46px;background:linear-gradient(var(--gold),transparent);margin:14px auto 0}
+
+/* sezioni base */
+section{position:relative}
+.pad{padding:clamp(90px,13vw,160px) 0}
+.lead{font-family:var(--serif);font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.1;font-weight:400}
+.lead em{font-style:italic;color:var(--gold-deep)}
+
+/* STORIA */
+.storia{background:var(--cream)}
+.storia-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,7vw,96px);align-items:center}
+.storia-txt .eyebrow{display:block;margin-bottom:24px}
+.storia-txt p.body{margin-top:26px;max-width:48ch;color:var(--soft);font-size:1.04rem}
+.storia-txt .sign{font-family:var(--serif);font-style:italic;font-size:1.5rem;margin-top:30px;color:var(--ink)}
+.frame{position:relative;aspect-ratio:4/5;background:linear-gradient(135deg,#cdbb9b,#9c8460);overflow:hidden;box-shadow:0 30px 60px -30px rgba(23,16,9,.5)}
+.frame .ph{position:absolute;inset:0;background:linear-gradient(160deg,rgba(23,16,9,.05),rgba(23,16,9,.28)),url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=1100&q=70') center/cover no-repeat}
+.frame::before{content:"";position:absolute;inset:14px;border:1px solid rgba(239,230,214,.5);z-index:2;pointer-events:none}
+
+/* IL PERCORSO (signature, dark) */
+.percorso{background:var(--ink);color:var(--paper)}
+.percorso .head{text-align:center;max-width:60ch;margin:0 auto clamp(50px,7vw,84px)}
+.percorso .head .eyebrow{color:var(--gold)}
+.percorso .head h2{font-size:clamp(2.3rem,5vw,3.6rem);margin-top:18px;font-weight:400}
+.percorso .head h2 em{font-style:italic;color:var(--gold)}
+.course{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(24px,5vw,64px);align-items:baseline;padding:38px 0;border-top:1px solid var(--line-d)}
+.course:last-child{border-bottom:1px solid var(--line-d)}
+.course .num{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.6rem);color:var(--gold);line-height:1;font-weight:400;font-style:italic}
+.course .name{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:500}
+.course .name .lbl{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px;font-weight:500}
+.course .desc{max-width:34ch;color:rgba(239,230,214,.66);font-size:.98rem;text-align:right}
+
+/* STAT */
+.stat{background:var(--cream-2)}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.stat .n{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4rem);color:var(--ink);font-weight:500;line-height:1}
+.stat .n small{font-size:.5em;color:var(--gold-deep)}
+.stat .l{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-top:12px}
+.stat .item{position:relative}
+.stat .item+.item::before{content:"";position:absolute;left:0;top:10%;height:80%;width:1px;background:var(--line)}
+
+/* GALLERIA */
+.gallery{background:var(--cream)}
+.gal-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(230px,30vw,330px);gap:16px;margin-top:56px}
+.tile{position:relative;overflow:hidden;background:linear-gradient(135deg,#cdbb9b,#7a6444)}
+.tile .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.3s cubic-bezier(.22,1,.36,1)}
+.tile:hover .img{transform:scale(1.07)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(18,12,6,.34));pointer-events:none}
+.t-a{grid-column:span 7}
+.t-b{grid-column:span 5}
+.t-c{grid-column:span 5}
+.t-d{grid-column:span 7}
+
+/* RECENSIONI / google */
+.reviews{background:var(--ink);color:var(--paper);text-align:center}
+.reviews .stars{color:var(--gold);font-size:1.5rem;letter-spacing:.18em}
+.reviews .big{font-family:var(--serif);font-size:clamp(3rem,7vw,5rem);font-weight:500;margin:.1em 0;line-height:1}
+.reviews .sub{color:rgba(239,230,214,.7);letter-spacing:.04em}
+.reviews .gw{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--line-d);padding:12px 22px;transition:.4s}
+.reviews .gw:hover{border-color:var(--gold);color:var(--gold)}
+
+/* PRENOTA */
+.book{background:var(--ink-2);color:var(--paper)}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,90px);align-items:center}
+.book .eyebrow{color:var(--gold)}
+.book h2{font-size:clamp(2.3rem,5vw,3.6rem);margin:18px 0 22px;font-weight:400}
+.book h2 em{font-style:italic;color:var(--gold)}
+.book .lede{color:rgba(239,230,214,.72);max-width:42ch;margin-bottom:30px}
+.book .info{display:flex;flex-direction:column;gap:14px;font-size:.96rem}
+.book .info span{color:var(--gold-deep);letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;display:block;margin-bottom:2px}
+.form{background:var(--paper);color:var(--ink);padding:clamp(28px,4vw,44px)}
+.form .field{margin-bottom:18px}
+.form label{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}
+.form input,.form select,.form textarea{width:100%;padding:13px 15px;border:1px solid var(--line);background:#fff;font-family:var(--sans);font-size:.96rem;color:var(--ink);border-radius:0}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--gold-deep)}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .btn{width:100%;margin-top:6px;border:0;background:var(--gold);color:var(--ink);justify-content:center}
+.form .btn:hover{background:var(--gold-deep);color:var(--paper)}
+.form .note{font-size:.74rem;color:var(--soft);margin-top:14px;text-align:center;letter-spacing:.02em}
+
+/* FOOTER */
+.foot{background:var(--ink);color:rgba(239,230,214,.8);padding:80px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:48px;border-bottom:1px solid var(--line-d)}
+.foot .brand{color:var(--paper);font-size:2rem}
+.foot .brand b{color:var(--gold)}
+.foot h4{font-family:var(--sans);font-weight:500;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px}
+.foot p,.foot a{font-size:.94rem;line-height:2;color:rgba(239,230,214,.78)}
+.foot a:hover{color:var(--gold)}
+.foot .copy{text-align:center;padding-top:30px;font-size:.78rem;letter-spacing:.1em;color:rgba(239,230,214,.5)}
+
+/* MOBILE MENU */
+.mmenu{position:fixed;inset:0;z-index:80;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;transform:translateY(-100%);transition:transform .55s cubic-bezier(.7,0,.2,1)}
+.mmenu.open{transform:none}
+.mmenu a{font-family:var(--serif);font-size:2rem;color:var(--paper)}
+.mmenu a:hover{color:var(--gold)}
+.mclose{position:absolute;top:24px;right:28px;background:none;border:0;color:var(--paper);font-size:2rem;cursor:pointer;line-height:1}
+
+@media(max-width:880px){
+  .links a:not(.btn),.links .btn{display:none}
+  .burger{display:flex}
+  .storia-grid,.book-grid{grid-template-columns:1fr}
+  .storia .frame{max-width:440px;margin:0 auto}
+  .course{grid-template-columns:auto 1fr;gap:20px 24px}
+  .course .desc{grid-column:1/-1;text-align:left;max-width:100%;margin-top:4px}
+  .stat-row{grid-template-columns:1fr 1fr;gap:40px 20px}
+  .stat .item:nth-child(3)::before,.stat .item:nth-child(2)::before{display:none}
+  .gal-grid{grid-template-columns:1fr;grid-auto-rows:auto}
+  .t-a,.t-b,.t-c,.t-d{grid-column:auto;aspect-ratio:16/10}
+  .form .two{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:34px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-photo{animation:none}
+  .hero-video{display:none}
+  .intro{display:none}
+  *{scroll-behavior:auto}
+  .reveal{transition:none}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <div class="intro-panel pt"></div>
+  <div class="intro-panel pb"></div>
+  <div class="intro-mark"><span style="--i:0">R</span><span style="--i:1">a</span><span style="--i:2">d</span><span style="--i:3">i</span><span style="--i:4">c</span><span style="--i:5">i</span><b>.</b></div>
+</div>
+
+<nav class="nav" id="nav">
+  <a href="#top" class="brand">Radici<b>.</b></a>
+  <div class="links">
+    <a href="#storia">Chi siamo</a>
+    <a href="#percorso">Menu</a>
+    <a href="#galleria">Galleria</a>
+    <a href="#contatti">Contatti</a>
+    <a href="#prenota" class="btn">Prenota</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mmenu" id="mmenu">
+  <button class="mclose" id="mclose" aria-label="Chiudi">&times;</button>
+  <a href="#storia">Chi siamo</a>
+  <a href="#percorso">Menu</a>
+  <a href="#galleria">Galleria</a>
+  <a href="#contatti">Contatti</a>
+  <a href="#prenota">Prenota un tavolo</a>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-parallax" id="heroPx"><div class="hero-photo">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.pexels.com/videos/5101336/pexels-photo-5101336.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1600&h=900">
+      <source src="https://videos.pexels.com/video-files/5101336/5101336-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+  </div></div>
+  <div class="hero-inner" id="heroInner">
+    <span class="eyebrow reveal">Cucina piemontese d'autore · Torino</span>
+    <h1 class="reveal d1">Sapori che hanno <em>radici</em></h1>
+    <p class="reveal d2">Materie prime del territorio, ricette di una volta servite con mano contemporanea. Una tavola dove ogni piatto racconta da dove veniamo.</p>
+    <div class="hero-cta reveal d3">
+      <a href="#prenota" class="btn gold">Prenota un tavolo</a>
+      <a href="#percorso" class="btn ghost-light">Scopri il menu</a>
+    </div>
+  </div>
+  <div class="scrollhint">Scorri</div>
+</header>
+
+<!-- STORIA -->
+<section class="storia pad" id="storia">
+  <div class="wrap storia-grid">
+    <div class="storia-txt">
+      <span class="eyebrow reveal">La nostra cucina</span>
+      <h2 class="lead reveal d1">Dalla terra, <em>alla tavola.</em></h2>
+      <p class="body reveal d2">Da Radici partiamo da ciò che il Piemonte ci offre: ortaggi di stagione, carni di filiera, formaggi d'alpeggio e vini del territorio. La tradizione resta la nostra bussola, ma ogni ricetta viene ripensata con leggerezza e cura, perché un piatto antico possa sorprendere ancora.</p>
+      <p class="body reveal d2">Una sala intima, pochi coperti, il tempo giusto per ogni portata.</p>
+      <p class="sign reveal d3">— Lo chef, Marco Beltrami</p>
+    </div>
+    <div class="frame reveal d2"><div class="ph"></div></div>
+  </div>
+</section>
+
+<!-- IL PERCORSO (signature) -->
+<section class="percorso pad" id="percorso">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow reveal">Il percorso</span>
+      <h2 class="reveal d1">Un menu pensato come <em>una sequenza</em></h2>
+    </div>
+    <div class="course reveal">
+      <div class="num">01</div>
+      <div class="name"><span class="lbl">Antipasto</span>Vitello tonnato al coltello</div>
+      <div class="desc">Fassona piemontese, salsa tonnata e capperi di Pantelleria.</div>
+    </div>
+    <div class="course reveal">
+      <div class="num">02</div>
+      <div class="name"><span class="lbl">Primo</span>Agnolotti del plin</div>
+      <div class="desc">Pasta fresca tirata a mano, sugo d'arrosto e burro di malga.</div>
+    </div>
+    <div class="course reveal">
+      <div class="num">03</div>
+      <div class="name"><span class="lbl">Secondo</span>Brasato al Barolo</div>
+      <div class="desc">Guancia di vitello cotta a lungo, polenta di mais Storo.</div>
+    </div>
+    <div class="course reveal">
+      <div class="num">04</div>
+      <div class="name"><span class="lbl">Dolce</span>Bonet alla piemontese</div>
+      <div class="desc">Cacao, amaretti e un cucchiaino di rum, come da tradizione.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT -->
+<section class="stat pad">
+  <div class="wrap stat-row">
+    <div class="item reveal"><div class="n">4.8<small>★</small></div><div class="l">Valutazione Google</div></div>
+    <div class="item reveal d1"><div class="n">320</div><div class="l">Recensioni</div></div>
+    <div class="item reveal d2"><div class="n">2009</div><div class="l">Dal</div></div>
+    <div class="item reveal d3"><div class="n">40</div><div class="l">Coperti</div></div>
+  </div>
+</section>
+
+<!-- GALLERIA -->
+<section class="gallery pad" id="galleria">
+  <div class="wrap">
+    <span class="eyebrow reveal">Galleria</span>
+    <h2 class="lead reveal d1" style="margin-top:14px;max-width:18ch">Qualche assaggio, <em>prima di sederti.</em></h2>
+    <div class="gal-grid">
+      <div class="tile t-a reveal"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1100&q=70')"></div></div>
+      <div class="tile t-b reveal d1"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=70')"></div></div>
+      <div class="tile t-c reveal d1"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=70')"></div></div>
+      <div class="tile t-d reveal"><div class="img" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1100&q=70')"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section class="reviews pad">
+  <div class="wrap">
+    <div class="stars reveal">★★★★★</div>
+    <div class="big reveal d1">4.8 / 5</div>
+    <div class="sub reveal d2">La media di 320 recensioni reali dei nostri ospiti su Google.</div>
+    <a href="#" class="gw reveal d3">Leggi le recensioni su Google</a>
+  </div>
+</section>
+
+<!-- PRENOTA -->
+<section class="book pad" id="prenota">
+  <div class="wrap book-grid">
+    <div class="book-txt">
+      <span class="eyebrow reveal">Prenotazione</span>
+      <h2 class="reveal d1">Ti aspettiamo <em>a tavola</em></h2>
+      <p class="lede reveal d2">Scrivici la sera che preferisci e per quante persone: ti rispondiamo su WhatsApp con la conferma. Per gruppi numerosi o eventi, chiamaci pure.</p>
+      <div class="info reveal d3">
+        <div><span>Indirizzo</span>Via Giulia di Barolo 9, Torino</div>
+        <div><span>Telefono</span><a href="tel:393512487790">+39 351 248 7790</a></div>
+        <div><span>Orari</span>Mar–Dom 19:30 – 23:00 · Dom anche pranzo 12:30 – 14:30 · Lun chiuso</div>
+      </div>
+    </div>
+    <div class="form reveal d2">
+      <div class="field"><label>Nome</label><input id="f-nome" type="text" placeholder="Il tuo nome"></div>
+      <div class="two">
+        <div class="field"><label>Persone</label>
+          <select id="f-cop"><option>2 persone</option><option>1 persona</option><option>3 persone</option><option>4 persone</option><option>5 persone</option><option>6+ persone</option></select>
+        </div>
+        <div class="field"><label>Data</label><input id="f-data" type="date"></div>
+      </div>
+      <div class="two">
+        <div class="field"><label>Orario</label>
+          <select id="f-ora"><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>Pranzo (Dom)</option></select>
+        </div>
+        <div class="field"><label>Telefono</label><input id="f-tel" type="tel" placeholder="Il tuo numero"></div>
+      </div>
+      <div class="field"><label>Note (allergie, occasioni…)</label><textarea id="f-note" rows="2" placeholder="Facoltativo"></textarea></div>
+      <button class="btn" id="send">Invia richiesta su WhatsApp</button>
+      <div class="note">Ti risponderemo a breve per confermare la disponibilità.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot" id="contatti">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">Radici<b>.</b></div>
+        <p style="margin-top:14px;max-width:34ch">Cucina piemontese d'autore nel cuore di Torino. Materie prime del territorio, tradizione servita con cura.</p>
+      </div>
+      <div>
+        <h4>Dove siamo</h4>
+        <p>Via Giulia di Barolo 9<br>10124 Torino (TO)<br><a href="#">Indicazioni →</a></p>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <p>
+          <a href="tel:393512487790">+39 351 248 7790</a><br>
+          <a href="mailto:info@radici-torino.it">info@radici-torino.it</a><br>
+          Mar–Dom · Lun chiuso
+        </p>
+      </div>
+    </div>
+    <div class="copy">© 2026 Radici — Cucina d'Autore · Torino · P.IVA 11223344556</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var intro=document.querySelector('.intro');
+  if(intro){setTimeout(function(){if(intro&&intro.parentNode)intro.parentNode.removeChild(intro);},1800);}
+
+  var nav=document.getElementById('nav');
+  var onScroll=function(){ nav.classList.toggle('scr', window.scrollY>40); };
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  // mobile menu
+  var mm=document.getElementById('mmenu');
+  document.getElementById('burger').addEventListener('click',function(){mm.classList.add('open')});
+  document.getElementById('mclose').addEventListener('click',function(){mm.classList.remove('open')});
+  Array.prototype.forEach.call(mm.querySelectorAll('a'),function(a){a.addEventListener('click',function(){mm.classList.remove('open')})});
+
+  // reveals
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+  }
+
+  // booking -> whatsapp
+  var WA='393512487790';
+  document.getElementById('send').addEventListener('click',function(){
+    var v=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
+    var nome=v('f-nome')||'—';
+    var msg='Buongiorno Radici, vorrei prenotare un tavolo.%0A'+
+      '%0A• Nome: '+encodeURIComponent(nome)+
+      '%0A• Persone: '+encodeURIComponent(v('f-cop'))+
+      '%0A• Data: '+encodeURIComponent(v('f-data')||'da concordare')+
+      '%0A• Orario: '+encodeURIComponent(v('f-ora'))+
+      (v('f-tel')?'%0A• Telefono: '+encodeURIComponent(v('f-tel')):'')+
+      (v('f-note')?'%0A• Note: '+encodeURIComponent(v('f-note')):'')+
+      '%0A%0AGrazie!';
+    window.open('https://wa.me/'+WA+'?text='+msg,'_blank');
+  });
+
+  // hero parallax (mouse = profondità, scroll = movimento; fluido con lerp)
+  var heroPx=document.getElementById('heroPx'),
+      heroInner=document.getElementById('heroInner'),
+      hero=document.getElementById('top'),
+      reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      fine=window.matchMedia('(pointer: fine)').matches;
+  if(heroPx && !reduce){
+    var tx=0,ty=0,mx=0,my=0;
+    if(fine){
+      hero.addEventListener('mousemove',function(e){
+        var r=hero.getBoundingClientRect();
+        tx=(e.clientX-r.left)/r.width-0.5;
+        ty=(e.clientY-r.top)/r.height-0.5;
+      });
+      hero.addEventListener('mouseleave',function(){tx=0;ty=0;});
+    }
+    var tick=function(){
+      mx+=(tx-mx)*0.06; my+=(ty-my)*0.06;
+      var sY=window.pageYOffset||0;
+      heroPx.style.transform='translate3d('+(mx*-26).toFixed(2)+'px,'+((my*-20)+sY*0.10).toFixed(2)+'px,0)';
+      if(heroInner) heroInner.style.transform='translate3d('+(mx*14).toFixed(2)+'px,'+((my*12)-sY*0.04).toFixed(2)+'px,0)';
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+})();
+</script>
+</body>
+</html>
