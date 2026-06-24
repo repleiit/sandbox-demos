@@ -207,6 +207,14 @@ html:not(.js) .rail-nav{display:none}
 .micheline{display:inline-block;font-family:var(--sans);font-size:.6rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(199,154,91,.55);padding:8px 15px;border-radius:2px;margin-bottom:20px}
 @media(max-width:880px){.storia .carousel{max-width:440px;margin:0 auto}}
 
+/* DINAMISMO */
+@keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+.js .carousel .cslide.on{animation:kenburns 5s ease-out both}
+.dish-card{transition:transform .45s ease,box-shadow .45s ease}
+.dish-card:hover{transform:translateY(-6px);box-shadow:0 26px 52px -28px rgba(40,28,12,.6)}
+.team-card{transition:transform .5s ease}
+.team-card:hover{transform:translateY(-6px)}
+
 /* FOOTER */
 .foot{background:var(--ink);color:rgba(239,230,214,.8);padding:80px 0 40px}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:48px;border-bottom:1px solid var(--line-d)}
@@ -283,6 +291,7 @@ html:not(.js) .rail-nav{display:none}
   .hero-photo{animation:none}
   .intro{display:none}
   *{scroll-behavior:auto}
+  .carousel .cslide.on{animation:none}
   .reveal{transition:none}
   .js .reveal{opacity:1;transform:none}
 }
@@ -796,6 +805,27 @@ html:not(.js) .rail-nav{display:none}
   c.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
   c.addEventListener('touchend',function(e){if(x0==null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(dx<0?i+1:i-1);x0=null;play();},{passive:true});
   show(0); play();
+})();
+</script>
+<script>
+(function(){
+  var stat=document.querySelector('.stat');
+  if(!stat||!('IntersectionObserver' in window)) return;
+  var done=false;
+  function run(){
+    if(done) return; done=true;
+    Array.prototype.forEach.call(stat.querySelectorAll('.n'),function(el){
+      var small=el.querySelector('small'); var suf=small?small.outerHTML:'';
+      var raw=el.textContent.replace(/[^0-9.]/g,''); var target=parseFloat(raw);
+      if(isNaN(target)){return;}
+      var dec=(raw.split('.')[1]||'').length, dur=1200, s=null;
+      function step(t){ if(!s)s=t; var p=Math.min((t-s)/dur,1); var e=1-Math.pow(1-p,3);
+        el.innerHTML=(target*e).toFixed(dec)+suf;
+        if(p<1) requestAnimationFrame(step); else el.innerHTML=raw+suf; }
+      requestAnimationFrame(step);
+    });
+  }
+  new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)run();});},{threshold:.4}).observe(stat);
 })();
 </script>
 </body>
