@@ -191,7 +191,7 @@ html:not(.js) .rail-nav{display:none}
 
 /* CAROUSEL (storia) */
 .carousel{position:relative;aspect-ratio:4/5;overflow:hidden;background:#9c8460;box-shadow:0 30px 60px -30px rgba(23,16,9,.5)}
-.carousel .cslide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .6s ease}
+.carousel .cslide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .5s ease}
 .carousel .cslide:first-child{opacity:1}
 .js .carousel .cslide:first-child{opacity:0}
 .js .carousel .cslide.on{opacity:1}
@@ -794,7 +794,7 @@ html:not(.js) .rail-nav{display:none}
     i=(n%slides.length+slides.length)%slides.length;
     slides[i].classList.add('on'); if(dots[i])dots[i].classList.add('on');
   }
-  function play(){ stop(); t=setInterval(function(){show(i+1);},2600); }
+  function play(){ stop(); t=setInterval(function(){show(i+1);},1800); }
   function stop(){ if(t){clearInterval(t);t=null;} }
   var prev=c.querySelector('.cprev'),next=c.querySelector('.cnext');
   if(prev)prev.addEventListener('click',function(){show(i-1);play();});
